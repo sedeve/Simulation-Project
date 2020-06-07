@@ -183,7 +183,7 @@ public class hoder extends JFrame {
 
   public class event1 implements ActionListener{
 	public void actionPerformed(ActionEvent ev) {
-    cargenerating(2, 3, 2, 4);
+    cargenerating(2, 3, 2, 2);
         f = new Ajout_vehivule(null);
         
 			  f.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
