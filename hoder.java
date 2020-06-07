@@ -25,12 +25,15 @@ public class hoder extends JFrame {
   int light =1;
   int iflight=3, w=0, z=0, n=0;
   JMenuBar menubar;
-  JMenu reglageParametres;
+  JMenuItem reglageParametres;
+
+  Ajout_vehivule f;
   
   public hoder(){
     startb = new JButton("Start");
 	  menubar = new JMenuBar();
-	  reglageParametres = new JMenu("Regler parametres");
+    reglageParametres = new JMenuItem("Regler parametres");
+
     t1 = new JLabel();
     t2 = new JLabel();
     t3 = new JLabel();
@@ -42,7 +45,7 @@ public class hoder extends JFrame {
 
     menubar.setBounds(0, 0, 1000, 20);
     reglageParametres.setBounds(0, 0, 100, 20);
-    
+
     reglageParametres.setBackground(new Color(0,0,0,0));
     menubar.add(reglageParametres);
     add(menubar);
@@ -54,7 +57,39 @@ public class hoder extends JFrame {
       car3[i]= new Car(4);
     }
 
-    for(int i=1; i<=n; i++)
+    cargenerating(1, 1, 1, 1);
+    
+    route = new Route();
+    setLayout(null);
+    
+    startb.setBounds(410, 535, 100, 20);
+    
+    f1.setBackground(new Color(1,0,0,0));
+    f2.setBackground(new Color(1,0,0,0));
+    f3.setBackground(new Color(1,0,0,0));
+    f4.setBackground(new Color(1,0,0,0));
+    f1.setBounds(0, 20, 1000, 1000);
+    f2.setBounds(0, 20, 1000, 1000);
+    f3.setBounds(0, 20, 1000, 1000);
+    f4.setBounds(0, 20, 1000, 1000);
+    t1.setBounds(0, 100, 100, 40);
+    route.setBounds(0, 20, 1000, 1000);
+    
+    add(t1);
+    add(f1);
+    add(f2);  
+    add(f3);  
+    add(f4);  
+    add(route);
+    add(startb);
+    event1 ev = new event1();
+    reglageParametres.addActionListener(ev);
+    event e = new event();
+    startb.addActionListener(e);
+}
+  public void cargenerating(int n1, int n2, int n3, int n4)
+  {
+    for(int i=1; i<=n1; i++)
     {
       if (w==0 && z==0 &&  i>1) {
         w=50;
@@ -72,11 +107,11 @@ public class hoder extends JFrame {
       }
       car[i].setBounds(0, 0, 1000, 1000);
       car[i].setBackground(new Color(0,0,0,0));
-      add(car[i]);
+      add(car[i]).repaint();
     }
     w=0;
     z=0;
-    for(int i=1; i<=3; i++)
+    for(int i=1; i<=n2; i++)
     {
       if (w==0 && z==0 &&  i>1) {
         w=50;
@@ -94,12 +129,12 @@ public class hoder extends JFrame {
       }
       car1[i].setBounds(0, 0, 1000, 1000);
       car1[i].setBackground(new Color(0,0,0,0));
-      add(car1[i]);
+      add(car1[i]).repaint();
 
     }
     w=0;
     z=0;
-    for(int i=1; i<=2; i++)
+    for(int i=1; i<=n3; i++)
     {
       if (w==0 && z==0 &&  i>1) {
         w=60;
@@ -117,12 +152,12 @@ public class hoder extends JFrame {
       }
       car2[i].setBounds(0, 0, 1000, 1000);
       car2[i].setBackground(new Color(0,0,0,0));
-      add(car2[i]);
+      add(car2[i]).repaint();
       
     }
     w=0;
     z=0;
-    for(int i=1; i<=4; i++)
+    for(int i=1; i<=n4; i++)
     {
       if (w==0 && z==0 &&  i>1) {
         w=55;
@@ -140,49 +175,19 @@ public class hoder extends JFrame {
       }
       car3[i].setBounds(0, 0, 1000, 1000);
       car3[i].setBackground(new Color(0,0,0,0));
-      add(car3[i]);
-      if (i==n) {
-        w=0;
-        z=0;
-      }
+      add(car3[i]).repaint();
     }
-    
-    route = new Route();
-    setLayout(null);
-    
-    startb.setBounds(410, 535, 100, 20);
-    
-    f1.setBackground(new Color(1,0,0,0));
-    f2.setBackground(new Color(1,0,0,0));
-    f3.setBackground(new Color(1,0,0,0));
-    f4.setBackground(new Color(1,0,0,0));
-    f1.setBounds(0, 20, 1000, 1000);
-    f2.setBounds(0, 20, 1000, 1000);
-    f3.setBounds(0, 20, 1000, 1000);
-    f4.setBounds(0, 20, 1000, 1000);
-    t1.setBounds(0, 100, 100, 40);
-    route.setBounds(0, 20, 1000, 1000);
+    w=0;
+    z=0;
+  }
 
-    add(t1);
-    add(f1);
-    add(f2);  
-    add(f3);  
-    add(f4);  
-    add(route);
-    add(startb);
-    event1 ev = new event1();
-    reglageParametres.addActionListener(ev);
-    event e = new event();
-    startb.addActionListener(e);
-   
-}
-  
   public class event1 implements ActionListener{
 	public void actionPerformed(ActionEvent ev) {
-
-			  Ajout_vehivule f = new Ajout_vehivule(hoder.this);
-			  f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		      f.setSize(500, 500);
+    cargenerating(2, 3, 2, 4);
+        f = new Ajout_vehivule(null);
+        
+			  f.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		      f.setSize(600, 600);
 		      f.setResizable(false);
 		      f.setLocationRelativeTo(null);
 		      f.setVisible(true);
@@ -191,6 +196,7 @@ public class hoder extends JFrame {
   public class event implements ActionListener{
 	  public void actionPerformed(ActionEvent e){  
       int count = 100;
+
       t1.setText(""+count);
       Timeclass tc = new Timeclass(count);
       timer = new Timer(100, tc);

@@ -89,10 +89,10 @@ public class Ajout_vehivule extends JFrame implements ActionListener{
 	
 	String[] elements1 = { "0","1", "2", "3", "4"};
 
-	JComboBox choixNbreVehicule1= new JComboBox(elements1);
-	JComboBox choixNbreVehicule2= new JComboBox(elements1);
-	JComboBox choixNbreVehicule3= new JComboBox(elements1);
-	JComboBox choixNbreVehicule4= new JComboBox(elements1);
+	JComboBox<String> choixNbreVehicule1= new JComboBox<>(elements1);
+	JComboBox<String> choixNbreVehicule2= new JComboBox<>(elements1);
+	JComboBox<String> choixNbreVehicule3= new JComboBox<>(elements1);
+	JComboBox<String> choixNbreVehicule4= new JComboBox<>(elements1);
 	
 	JTextField Vitesse1 = new JTextField(5);
 	JTextField Vitesse2 = new JTextField(5);
