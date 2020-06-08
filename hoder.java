@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+
 public class hoder extends JFrame {
   private static final long serialVersionUID = 1L;
   JButton startb ;
@@ -56,8 +57,8 @@ public class hoder extends JFrame {
       car2[i]= new Car(3);
       car3[i]= new Car(4);
     }
-
-    cargenerating(1, 1, 1, 1);
+    //before
+    cargenerating(4, 4, 4, 0);
     
     route = new Route();
     setLayout(null);
@@ -183,14 +184,16 @@ public class hoder extends JFrame {
 
   public class event1 implements ActionListener{
 	public void actionPerformed(ActionEvent ev) {
-    cargenerating(2, 3, 2, 2);
-        f = new Ajout_vehivule(null);
+    f = new Ajout_vehivule(null);
         
-			  f.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-		      f.setSize(600, 600);
-		      f.setResizable(false);
-		      f.setLocationRelativeTo(null);
-		      f.setVisible(true);
+    f.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+      f.setSize(600, 600);
+      f.setResizable(false);
+      f.setLocationRelativeTo(null);
+      f.setVisible(true);
+      
+    cargenerating(3, 2, 3, 2);
+    repaint();
 	}
   }
   public class event implements ActionListener{
