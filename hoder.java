@@ -5,6 +5,8 @@ import java.awt.event.*;
 import javax.swing.*;
 
 
+
+
 public class hoder extends JFrame {
   private static final long serialVersionUID = 1L;
   JButton startb ;
@@ -28,8 +30,7 @@ public class hoder extends JFrame {
   JMenuBar menubar;
   JMenuItem reglageParametres;
 
-  Ajout_vehivule f;
-  
+  Ajout_vehivule f = new Ajout_vehivule(null);
   public hoder(){
     startb = new JButton("Start");
 	  menubar = new JMenuBar();
@@ -58,7 +59,7 @@ public class hoder extends JFrame {
       car3[i]= new Car(4);
     }
     //before
-    cargenerating(4, 4, 4, 0);
+    cargenerating(4, 4, 4, 4);
     
     route = new Route();
     setLayout(null);
@@ -85,8 +86,10 @@ public class hoder extends JFrame {
     add(startb);
     event1 ev = new event1();
     reglageParametres.addActionListener(ev);
+    
     event e = new event();
     startb.addActionListener(e);
+    
 }
   public void cargenerating(int n1, int n2, int n3, int n4)
   {
@@ -182,19 +185,37 @@ public class hoder extends JFrame {
     z=0;
   }
 
-  public class event1 implements ActionListener{
-	public void actionPerformed(ActionEvent ev) {
-    f = new Ajout_vehivule(null);
-        
-    f.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-      f.setSize(600, 600);
-      f.setResizable(false);
-      f.setLocationRelativeTo(null);
-      f.setVisible(true);
+  public class event1 implements ActionListener
+  {
+    public void actionPerformed(ActionEvent ev) 
+    {
       
-    cargenerating(3, 2, 3, 2);
-    repaint();
-	}
+      
+      f.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        f.setSize(600, 600);
+        f.setResizable(false);
+        f.setLocationRelativeTo(null);
+        f.setVisible(true);
+        
+        Timeclass t = new Timeclass();
+        timer = new Timer(10, t);
+        timer.start();
+    }
+    public class Timeclass implements ActionListener{
+
+      @Override
+      public void actionPerformed(ActionEvent t) {
+        // TODO Auto-generated method stub
+        if(f.check()==1)
+        {
+          cargenerating(f.nbreVRoute1, f.nbreVRoute2, f.nbreVRoute3, f.nbreVRoute4);
+          repaint();
+          f.check=0;
+
+        }
+      }
+      
+    }
   }
   public class event implements ActionListener{
 	  public void actionPerformed(ActionEvent e){  
@@ -324,6 +345,7 @@ public class hoder extends JFrame {
   }
       static public void main(String args[]) {
         hoder window = new hoder();
+        
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setSize(1000, 1000);
         window.setResizable(false);

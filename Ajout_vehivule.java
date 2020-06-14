@@ -15,22 +15,24 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 
+
 public class Ajout_vehivule extends JFrame implements ActionListener{
 	/**
 	 *
 	 */
 	private static final long serialVersionUID = 1L;
-	int nbreVRoute1=4, nbreVRoute2, nbreVRoute3, nbreVRoute4;
+	int nbreVRoute1, nbreVRoute2, nbreVRoute3, nbreVRoute4;
 	float v1, v2, v3, v4;
 	JButton Quitter = new JButton("Quitter");
 	JButton Simuler = new JButton("Simuler");
-	
+	int check=0;
+
 	JPanel panelCentral = new JPanel();
 //	String [] slabelVitesse     = {"Vitesse", "Vitesse", "Vitesse", "Vitesse"};
-	JPanel panelVitesse1 = new JPanel();
-	JPanel panelVitesse2 = new JPanel();
+	/*JPanel panelVitesse1 = new JPanel();
+      JPanel panelVitesse2 = new JPanel();
 	JPanel panelVitesse3 = new JPanel();
-	JPanel panelVitesse4 = new JPanel();
+	JPanel panelVitesse4 = new JPanel();*/
 
 	//JLabel [] labelVitesse1= new JLabel[slabelVitesse.length];
 	JLabel labelVitesse1 = new JLabel("Vitesse");
@@ -51,16 +53,16 @@ public class Ajout_vehivule extends JFrame implements ActionListener{
 	JPanel panelRoute3 = new JPanel();
 	JPanel panelRoute4 = new JPanel();
 
-	JPanel panelTimeVert1 = new JPanel();
-	JPanel panelTimeVert2 = new JPanel();
+	//JPanel panelTimeVert1 = new JPanel();
+	/*JPanel panelTimeVert2 = new JPanel();
 	JPanel panelTimeVert3 = new JPanel();
-	JPanel panelTimeVert4 = new JPanel();
+	JPanel panelTimeVert4 = new JPanel();*/
 
 
-	JPanel panelTimeRouge1 = new JPanel();
+	/*JPanel panelTimeRouge1 = new JPanel();
 	JPanel panelTimeRouge2 = new JPanel();
 	JPanel panelTimeRouge3 = new JPanel();
-	JPanel panelTimeRouge4 = new JPanel();
+	JPanel panelTimeRouge4 = new JPanel();*/
 	
 	JPanel panelNbreVehicules1 = new JPanel();
 	JPanel panelNbreVehicules2 = new JPanel();
@@ -109,7 +111,9 @@ public class Ajout_vehivule extends JFrame implements ActionListener{
 	JTextField timeRouge3= new JTextField(5);
 	JTextField timeRouge4= new JTextField(5);
 	
-	public Ajout_vehivule(hoder hoder) {
+	public Ajout_vehivule(hoder hoder) 
+	{
+		
 		super("Ajouter Vehicule");
 		add(panelPrincipal, BorderLayout.CENTER);
 		add(panelPrincipal2, BorderLayout.SOUTH);
@@ -142,7 +146,7 @@ public class Ajout_vehivule extends JFrame implements ActionListener{
 		panelRoute3.setLayout(new BoxLayout(panelRoute3,BoxLayout.Y_AXIS));
 		panelRoute4.setLayout(new BoxLayout(panelRoute4,BoxLayout.Y_AXIS));
 
-		panelVitesse1.add(labelVitesse1);
+		/*panelVitesse1.add(labelVitesse1);
 		panelVitesse2.add(labelVitesse2);
 		panelVitesse3.add(labelVitesse3);
 		panelVitesse4.add(labelVitesse4);
@@ -150,7 +154,7 @@ public class Ajout_vehivule extends JFrame implements ActionListener{
 		panelVitesse1.add(Vitesse1);
 		panelVitesse2.add(Vitesse2);
 		panelVitesse3.add(Vitesse3);
-		panelVitesse4.add(Vitesse4);
+		panelVitesse4.add(Vitesse4);*/
 		
 		panelPrincipal.add(panelRoute1);
 		panelPrincipal.add(panelRoute2);
@@ -168,12 +172,12 @@ public class Ajout_vehivule extends JFrame implements ActionListener{
 		panelNbreVehicules3.add(choixNbreVehicule3);
 		panelNbreVehicules4.add(choixNbreVehicule4);
 		
-		panelTimeVert1.add(labelTimeVert1);
-		panelTimeVert1.add(timeVert1);
-		panelTimeRouge1.add(labelTimeRouge1);
-		panelTimeRouge1.add(timeRouge1);
+		//panelTimeVert1.add(labelTimeVert1);
+		//panelTimeVert1.add(timeVert1);
+		//panelTimeRouge1.add(labelTimeRouge1);
+	//	panelTimeRouge1.add(timeRouge1);
 		
-		panelTimeVert2.add(labelTimeVert2);
+	/*	panelTimeVert2.add(labelTimeVert2);
 		panelTimeVert2.add(timeVert2);
 		panelTimeRouge2.add(labelTimeRouge2);
 		panelTimeRouge2.add(timeRouge2);
@@ -186,31 +190,31 @@ public class Ajout_vehivule extends JFrame implements ActionListener{
 		panelTimeVert4.add(labelTimeVert4);
 		panelTimeVert4.add(timeVert4);
 		panelTimeRouge4.add(labelTimeRouge4);
-		panelTimeRouge4.add(timeRouge4);
+		panelTimeRouge4.add(timeRouge4);*/
 		
 		panelRoute1.add(labelRoute1);
 		panelRoute1.add(panelNbreVehicules1);
-		panelRoute1.add(panelVitesse1);
-		panelRoute1.add(panelTimeVert1);
-		panelRoute1.add(panelTimeRouge1);
+	//	panelRoute1.add(panelVitesse1);
+	//	panelRoute1.add(panelTimeVert1);
+	//	panelRoute1.add(panelTimeRouge1);
 		
 		panelRoute2.add(labelRoute2);
 		panelRoute2.add(panelNbreVehicules2);
-		panelRoute2.add(panelVitesse2);
-		panelRoute2.add(panelTimeVert2);
-		panelRoute2.add(panelTimeRouge2);
+	//	panelRoute2.add(panelVitesse2);
+	//	panelRoute2.add(panelTimeVert2);
+//		panelRoute2.add(panelTimeRouge2);
 		
 		panelRoute3.add(labelRoute3);
 		panelRoute3.add(panelNbreVehicules3);
-		panelRoute3.add(panelVitesse3);
-		panelRoute3.add(panelTimeVert3);
-		panelRoute3.add(panelTimeRouge3);
+	//	panelRoute3.add(panelVitesse3);
+		//panelRoute3.add(panelTimeVert3);
+	//	panelRoute3.add(panelTimeRouge3);
 		
 		panelRoute4.add(labelRoute4);
 		panelRoute4.add(panelNbreVehicules4);
-		panelRoute4.add(panelVitesse4);
-		panelRoute4.add(panelTimeVert4);
-		panelRoute4.add(panelTimeRouge4);
+		//panelRoute4.add(panelVitesse4);
+//		panelRoute4.add(panelTimeVert4);
+	//	panelRoute4.add(panelTimeRouge4);
 		
 		labelTimeVert1.setForeground(new Color(5, 158, 51));
 		labelTimeVert2.setForeground(new Color(5, 158, 51));
@@ -259,18 +263,10 @@ public class Ajout_vehivule extends JFrame implements ActionListener{
 
 			
 		if(e.getSource()==Quitter){
-			System.exit(0);
+			dispose();
 		}else if(e.getSource()==Simuler){
-			System.out.println("Route1 : "+nbreVRoute1+"vehicules");
-			System.out.println("Route2 : "+nbreVRoute2+"vehicules");
-			System.out.println("Route3 : "+nbreVRoute3+"vehicules");
-			System.out.println("Route4 : "+nbreVRoute4+"vehicules");
-			
-			v1=Float.parseFloat(Vitesse1.getText());
-			v2=Float.parseFloat(Vitesse2.getText());
-			v3=Float.parseFloat(Vitesse3.getText());
-			v4=Float.parseFloat(Vitesse4.getText());
-
+			check=1;
+			check();
 		}else if(e.getSource()==choixNbreVehicule1){
 			nbreVRoute1=choixNbreVehicule1.getSelectedIndex();
 		}else if(e.getSource()==choixNbreVehicule2){
@@ -281,5 +277,7 @@ public class Ajout_vehivule extends JFrame implements ActionListener{
 			nbreVRoute4=choixNbreVehicule4.getSelectedIndex();			
 		}
 	}
-
+	public int check(){
+		return check;
+	}
 }
