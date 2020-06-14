@@ -57,9 +57,17 @@ public class hoder extends JFrame {
       car1[i]= new Car(2);
       car2[i]= new Car(3);
       car3[i]= new Car(4);
+      car[i].setBounds(0, 0, 1000, 1000);
+      car[i].setBackground(new Color(0,0,0,0));
+      car1[i].setBounds(0, 0, 1000, 1000);
+      car1[i].setBackground(new Color(0,0,0,0));
+      car2[i].setBounds(0, 0, 1000, 1000);
+      car2[i].setBackground(new Color(0,0,0,0));
+      car3[i].setBounds(0, 0, 1000, 1000);
+      car3[i].setBackground(new Color(0,0,0,0));
     }
     //before
-    cargenerating(4, 4, 4, 4);
+cargenerating(4, 4, 4, 4);
     
     route = new Route();
     setLayout(null);
@@ -109,9 +117,8 @@ public class hoder extends JFrame {
         car[i].w=w;
         car[i].z=z;
       }
-      car[i].setBounds(0, 0, 1000, 1000);
-      car[i].setBackground(new Color(0,0,0,0));
-      add(car[i]).repaint();
+      
+      add(car[i]);
     }
     w=0;
     z=0;
@@ -131,8 +138,7 @@ public class hoder extends JFrame {
         car1[i].w=w;
         car1[i].z=z;
       }
-      car1[i].setBounds(0, 0, 1000, 1000);
-      car1[i].setBackground(new Color(0,0,0,0));
+      
       add(car1[i]).repaint();
 
     }
@@ -154,8 +160,7 @@ public class hoder extends JFrame {
         car2[i].w=w;
         car2[i].z=z;
       }
-      car2[i].setBounds(0, 0, 1000, 1000);
-      car2[i].setBackground(new Color(0,0,0,0));
+      
       add(car2[i]).repaint();
       
     }
@@ -177,8 +182,7 @@ public class hoder extends JFrame {
         car3[i].w=w;
         car3[i].z=z;
       }
-      car3[i].setBounds(0, 0, 1000, 1000);
-      car3[i].setBackground(new Color(0,0,0,0));
+      
       add(car3[i]).repaint();
     }
     w=0;
@@ -205,10 +209,9 @@ public class hoder extends JFrame {
 
       @Override
       public void actionPerformed(ActionEvent t) {
-        // TODO Auto-generated method stub
         if(f.check()==1)
         {
-          cargenerating(f.nbreVRoute1, f.nbreVRoute2, f.nbreVRoute3, f.nbreVRoute4);
+          cargenerating(4-f.nbreVRoute1, 4-f.nbreVRoute2, 4-f.nbreVRoute3, 4-f.nbreVRoute4);
           repaint();
           f.check=0;
 
